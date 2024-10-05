@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"steplcd.obj" 
+TO "stepperfflcd" 
+RAMSIZE(256) 

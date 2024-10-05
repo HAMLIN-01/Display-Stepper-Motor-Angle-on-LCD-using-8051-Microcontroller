@@ -1,0 +1,82 @@
+C51 COMPILER V9.53.0.0   STEPLCD                                                           08/30/2024 11:04:40 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE STEPLCD
+OBJECT MODULE PLACED IN steplcd.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE steplcd.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<regx52.h>
+   2          #define STEPPER P1
+   3          #define SEGMENT P2
+   4          void delay(unsigned int);
+   5          void display(unsigned char);
+   6          void angle();
+   7          void main()
+   8          {
+   9   1      while(1)
+  10   1      {
+  11   2      P1=0X01;
+  12   2      angle();
+  13   2      P1=0x03;
+  14   2      angle();
+  15   2      P1=0x02;
+  16   2      angle();
+  17   2      P1=0x06;
+  18   2      angle();
+  19   2      P1=0x04;
+  20   2      angle();
+  21   2      P1=0x0C;
+  22   2      angle();
+  23   2      P1=0x08;
+  24   2      angle();
+  25   2      P1=0x09;
+  26   2      angle();
+  27   2      }}
+  28          void angle()
+  29          {
+  30   1      unsigned char i;
+  31   1      for(i=0;i<6;i++)
+  32   1      {
+  33   2      display(i);
+  34   2      delay(1000);
+  35   2      }}
+  36          void delay(unsigned int a)
+  37          {
+  38   1      unsigned char i;
+  39   1      for(;a>0;a--)
+  40   1      {
+  41   2      for(i=250;i>0;i--);
+  42   2      }}
+  43          void display(unsigned char num)
+  44          {
+  45   1      switch(num)
+  46   1      {
+  47   2        case 1:SEGMENT=0xF9;
+  48   2        break;
+  49   2        case 2:SEGMENT=0xA4;
+  50   2        break;
+  51   2        case 3:SEGMENT=0xB0;
+  52   2        break;
+  53   2        case 4:SEGMENT=0x99;
+  54   2        break;
+  55   2        case 5:SEGMENT=0x92;
+C51 COMPILER V9.53.0.0   STEPLCD                                                           08/30/2024 11:04:40 PAGE 2   
+
+  56   2        break;
+  57   2        }}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    134    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
